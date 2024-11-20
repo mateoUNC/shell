@@ -1,0 +1,35 @@
+Start testing: Nov 02 01:03 -03
+----------------------------------------------------------
+1/1 Testing: test_runner
+1/1 Test: test_runner
+Command: "/home/mateo/FacultadMate/Sistemas/Lab2/so-i-24-chp2-mateoUNC/bin/test_runner"
+Directory: /home/mateo/FacultadMate/Sistemas/Lab2/so-i-24-chp2-mateoUNC/Testing
+"test_runner" start time: Nov 02 01:03 -03
+Output:
+----------------------------------------------------------
+total 64
+drwxr-xr-x 5 mateo mateo  4096 nov  2 00:13 CMakeFiles
+-rw-r--r-- 1 mateo mateo  1289 nov  1 12:03 cmake_install.cmake
+-rw-r--r-- 1 mateo mateo  1487 nov  1 23:26 CMakeLists.txt
+-rw-r--r-- 1 mateo mateo   700 nov  1 23:25 CTestTestfile.cmake
+drwxr-xr-x 2 mateo mateo  4096 nov  1 15:40 include
+-rw-r--r-- 1 mateo mateo  2988 nov  1 23:25 libtest_mocks.a
+-rw-r--r-- 1 mateo mateo 19439 nov  1 23:25 Makefile
+drwxr-xr-x 2 mateo mateo  4096 nov  1 23:50 src
+drwxr-xr-x 2 mateo mateo  4096 nov  2 01:01 Temporary
+drwxr-xr-x 3 mateo mateo  4096 nov  2 01:03 Testing
+-rw-r--r-- 1 mateo mateo    27 nov  1 15:06 test_stderr.txt
+-rw-r--r-- 1 mateo mateo   857 nov  2 01:01 test_stdout.txt
+/home/mateo/FacultadMate/Sistemas/Lab2/so-i-24-chp2-mateoUNC/Testing/src/test_main.c:43:test_divisor_input:PASS
+/home/mateo/FacultadMate/Sistemas/Lab2/so-i-24-chp2-mateoUNC/Testing/src/test_main.c:44:test_parse_pipeline:PASS
+/home/mateo/FacultadMate/Sistemas/Lab2/so-i-24-chp2-mateoUNC/Testing/src/test_main.c:47:test_change_directory:PASS
+/home/mateo/FacultadMate/Sistemas/Lab2/so-i-24-chp2-mateoUNC/Testing/src/test_main.c:48:test_execute_command_valid:PASS
+<end of output>
+Test time =   1.01 sec
+----------------------------------------------------------
+Test Failed.
+"test_runner" end time: Nov 02 01:03 -03
+"test_runner" time elapsed: 00:00:01
+----------------------------------------------------------
+
+End testing: Nov 02 01:03 -03

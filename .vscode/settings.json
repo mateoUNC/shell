@@ -1,0 +1,24 @@
+{
+    "files.associations": {
+        "unistd.h": "c",
+        "expose_metrics.h": "c",
+        "prompt.h": "c",
+        "config.h": "c",
+        "stdbool.h": "c",
+        "parser.h": "c",
+        "monitorhandle.h": "c",
+        "test_utils.h": "c",
+        "signals.h": "c",
+        "signal.h": "c",
+        "stdio.h": "c",
+        "globals.h": "c",
+        "stdlib.h": "c",
+        "string.h": "c",
+        "test_redireccion.h": "c",
+        "commands.h": "c",
+        "limits.h": "c",
+        "promhttp.h": "c",
+        "prom.h": "c",
+        "pthread.h": "c"
+    }
+}

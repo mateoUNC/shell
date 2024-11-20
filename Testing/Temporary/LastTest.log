@@ -1,0 +1,60 @@
+Start testing: Nov 08 20:59 -03
+----------------------------------------------------------
+1/1 Testing: test_runner
+1/1 Test: test_runner
+Command: "/home/mateo/FacultadMate/Sistemas/Lab2/so-i-24-chp2-mateoUNC/bin/test_runner"
+Directory: /home/mateo/FacultadMate/Sistemas/Lab2/so-i-24-chp2-mateoUNC/Testing
+"test_runner" start time: Nov 08 20:59 -03
+Output:
+----------------------------------------------------------
+total 72
+drwxr-xr-x 5 mateo mateo  4096 nov  8 20:58 CMakeFiles
+-rw-r--r-- 1 mateo mateo  1289 nov  7 09:23 cmake_install.cmake
+-rw-r--r-- 1 mateo mateo  1720 nov  7 09:04 CMakeLists.txt
+-rw-r--r-- 1 mateo mateo   700 nov  7 09:09 CTestTestfile.cmake
+-rw-r--r-- 1 mateo mateo   222 nov  2 17:09 debug_log.txt
+drwxr-xr-x 2 mateo mateo  4096 nov  3 13:28 include
+-rw-r--r-- 1 mateo mateo  2988 nov  1 23:25 libtest_mocks.a
+-rw-r--r-- 1 mateo mateo 20684 nov  3 13:42 Makefile
+drwxr-xr-x 2 mateo mateo  4096 nov  3 13:27 src
+drwxr-xr-x 2 mateo mateo  4096 nov  8 20:59 Temporary
+-rw-r--r-- 1 mateo mateo     0 nov  2 21:39 temp_output.txt
+drwxr-xr-x 3 mateo mateo  4096 nov  2 01:03 Testing
+-rw-r--r-- 1 mateo mateo    47 nov  2 21:07 test_stderr.txt
+-rw-r--r-- 1 mateo mateo  1185 nov  2 19:15 test_stdout.txt
+/home/mateo/FacultadMate/Sistemas/Lab2/so-i-24-chp2-mateoUNC/Testing/src/test_main.c:75:test_divisor_input:PASS
+/home/mateo/FacultadMate/Sistemas/Lab2/so-i-24-chp2-mateoUNC/Testing/src/test_main.c:76:test_parse_pipeline:PASS
+/home/mateo/FacultadMate/Sistemas/Lab2/so-i-24-chp2-mateoUNC/Testing/src/test_main.c:79:test_change_directory:PASS
+/home/mateo/FacultadMate/Sistemas/Lab2/so-i-24-chp2-mateoUNC/Testing/src/test_main.c:80:test_execute_command_valid:PASS
+/home/mateo/FacultadMate/Sistemas/Lab2/so-i-24-chp2-mateoUNC/Testing/src/test_main.c:81:test_execute_command_invalid:PASS
+Hello, world!
+/home/mateo/FacultadMate/Sistemas/Lab2/so-i-24-chp2-mateoUNC/Testing/src/test_main.c:84:test_echo_command_single_arg:PASS
+/home/mateo/FacultadMate/Sistemas/Lab2/so-i-24-chp2-mateoUNC/Testing/src/test_main.c:85:test_echo_command_exceed_buffer:PASS
+[1] 78860
+/home/mateo/FacultadMate/Sistemas/Lab2/so-i-24-chp2-mateoUNC/Testing/src/test_main.c:88:test_execute_command_background:PASS
+Monitor iniciado en modo de prueba
+Monitor iniciado en modo de prueba
+test_start_monitor passed successfully!
+/home/mateo/FacultadMate/Sistemas/Lab2/so-i-24-chp2-mateoUNC/Testing/src/test_main.c:91:test_start_monitor:PASS
+/home/mateo/FacultadMate/Sistemas/Lab2/so-i-24-chp2-mateoUNC/Testing/src/test_main.c:94:test_shell_signal_handler_SIGINT_with_foreground_pid:PASS
+/home/mateo/FacultadMate/Sistemas/Lab2/so-i-24-chp2-mateoUNC/Testing/src/test_main.c:95:test_shell_signal_handler_SIGTSTP_with_foreground_pid:PASS
+
+/home/mateo/FacultadMate/Sistemas/Lab2/so-i-24-chp2-mateoUNC/Testing/src/test_main.c:96:test_shell_signal_handler_SIGINT_no_foreground_pid:PASS
+
+/home/mateo/FacultadMate/Sistemas/Lab2/so-i-24-chp2-mateoUNC/Testing/src/test_main.c:97:test_shell_signal_handler_SIGTSTP_no_foreground_pid:PASS
+/home/mateo/FacultadMate/Sistemas/Lab2/so-i-24-chp2-mateoUNC/Testing/src/test_main.c:100:test_cat_redireccion_entrada:PASS
+/home/mateo/FacultadMate/Sistemas/Lab2/so-i-24-chp2-mateoUNC/Testing/src/test_main.c:101:test_cat_redireccion_entrada_multilinea:PASS
+/home/mateo/FacultadMate/Sistemas/Lab2/so-i-24-chp2-mateoUNC/Testing/src/test_main.c:103:test_cat_redireccion_entrada_vacia:PASS
+
+-----------------------
+16 Tests 0 Failures 0 Ignored 
+OK
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"test_runner" end time: Nov 08 20:59 -03
+"test_runner" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Nov 08 20:59 -03

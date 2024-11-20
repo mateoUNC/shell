@@ -1,0 +1,83 @@
+runs:
+  using: "composite"
+  steps:
+    - name: Install Conan
+      shell: bash
+      run: |
+        pip install conan
+
+    - name: Update APT and Clean Cache
+      shell: bash
+      run: |
+        sudo rm -rf /var/lib/apt/lists/*
+        sudo apt update
+
+    - name: Install Basic Build Tools
+      shell: bash
+      run: |
+        sudo apt install -y build-essential cmake
+
+    - name: Install GCC and G++
+      shell: bash
+      run: |
+        sudo apt install -y gcc g++
+
+    - name: Install Additional Dependencies
+      shell: bash
+      run: |
+        sudo apt install -y libmicrohttpd-dev doxygen graphviz valgrind
+
+    - name: Clone prometheus-client-c Repository
+      shell: bash
+      run: |
+        git clone https://github.com/digitalocean/prometheus-client-c.git
+
+    - name: Fix Incompatible Function Pointer in promhttp.c
+      shell: bash
+      run: |
+        sed -i 's/&promhttp_handler/(MHD_AccessHandlerCallback)promhttp_handler/' prometheus-client-c/promhttp/src/promhttp.c
+
+    - name: Build prom Library
+      shell: bash
+      run: |
+        mkdir -p prometheus-client-c/buildprom
+        cd prometheus-client-c/buildprom
+        cmake ../prom
+        make
+        sudo make install
+
+    - name: Build promhttp Library
+      shell: bash
+      run: |
+        mkdir -p prometheus-client-c/buildpromhttp
+        cd prometheus-client-c/buildpromhttp
+        cmake ../promhttp
+        make
+        sudo make install
+
+    - name: Create Build Directory
+      shell: bash
+      run: |
+        mkdir -p build
+
+    - name: Detect Conan Profile
+      shell: bash
+      working-directory: ./build
+      run: |
+        conan profile detect --force
+
+    - name: Install Conan Dependencies
+      shell: bash
+      working-directory: ./build
+      run: |
+        conan install .. --build=missing
+
+    - name: Compile Project
+      shell: bash
+      run: |
+        echo "Running cmake with toolchain file at ${CMAKE_BINARY_DIR}/Release/generators/conan_toolchain.cmake"
+        cd build
+        cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=build/Release/generators/conan_toolchain.cmake ../
+        make
+
+

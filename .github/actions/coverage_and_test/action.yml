@@ -1,0 +1,44 @@
+name: "Test and coverage check"
+description: "Runs tests, collects coverage, and checks if coverage exceeds 5%"
+
+runs:
+  using: "composite"
+  steps:
+    - name: Run Unit Tests
+      shell: bash
+      run: |
+        echo "Running Unit Tests..."
+        chmod +x ./build/bin/test_runner
+        ./build/bin/test_runner || echo "Test runner crashed. Exit code: $?"
+
+    - name: Run Coverage
+      shell: bash
+      run: |
+        echo "Running coverage analysis with gcovr..."
+        PROJECT_PATH=$(pwd)
+        ERROR_FILE_FLAG=$(pwd)/tests_errors.txt
+
+        # Run gcovr to calculate coverage
+        gcovr -r $PROJECT_PATH --exclude '.*test.*' --exclude 'prometheus-client-c' --exclude '.*mock.*' --txt $ERROR_FILE_FLAG
+
+        echo "Coverage report:"
+        cat $ERROR_FILE_FLAG
+
+        # Extract coverage percentage
+        COVERAGE_RESULT=$(grep "TOTAL" $ERROR_FILE_FLAG | awk '{print $NF}' | cut -d '%' -f 1)
+
+        # Check if coverage exceeds 5%
+        if [ "$(echo "$COVERAGE_RESULT > 5" | bc)" -eq 1 ]; then
+          echo "Coverage is greater than 5%. Nice!"
+        else
+          echo "Error: Coverage is less than or equal to 5%"
+          exit 1
+        fi
+
+    # Upload errors as an artifact, when failed
+    - uses: actions/upload-artifact@v3
+      if: failure()
+      with:
+        name: Tests or coverage errors!!!
+        path: ./tests_errors.txt
+        retention-days: 1
