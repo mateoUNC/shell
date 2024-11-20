@@ -14,22 +14,6 @@ Estas instrucciones detallan cómo instalar y configurar el proyecto de la shell
 
 ##### Instalación de Herramientas Necesarias
 
-Primero, necesitamos instalar las herramientas requeridas. Este script instala todas las dependencias y configura el entorno automáticamente:
-
-```bash
-chmod +x setup.sh
-./setup.sh
-```
-
-El script `setup.sh` realiza las siguientes acciones:
-- Actualiza el sistema e instala las dependencias necesarias como `cmake`, `gcc`, `g++`, `libmicrohttpd-dev`, `doxygen`, `graphviz`, `valgrind`, entre otros.
-- Inicializa y actualiza los submódulos del repositorio.
-- Crea y activa un entorno virtual de Python 3.11.
-- Instala Conan y verifica su versión.
-- Clona y compila la biblioteca `prometheus-client-c` para monitoreo.
-- Configura e instala las bibliotecas `prom` y `promhttp` necesarias para el monitoreo.
-- Instala las dependencias del proyecto usando Conan.
-
 #### Paso 1: Clonar el Repositorio
 
 Clona el repositorio del proyecto usando Git:
