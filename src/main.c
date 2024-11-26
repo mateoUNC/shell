@@ -10,6 +10,7 @@
 #include "prompt.h"
 #include "signals.h" // signals.h ya incluye <signal.h>
 #include "utils.h"
+#include "file_finder.h"
 
 #include <errno.h>
 #include <stdio.h>
@@ -63,7 +64,7 @@ void show_banner() {
 }
 
 int main(int argc, char *argv[]) {
-  show_banner();
+  //show_banner();
 
   // Definición de variables globales
   foreground_pid = 0;
@@ -128,6 +129,9 @@ int main(int argc, char *argv[]) {
       perror("Error al abrir el archivo de comandos");
       return EXIT_FAILURE;
     }
+
+    setvbuf(input_file, NULL, _IONBF, 0); // Desactiva el buffering
+
   }
 
   // Cambiar al directorio de inicio del usuario

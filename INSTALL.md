@@ -78,7 +78,7 @@ Para generar un reporte de cobertura usando `gcov` y `lcov`:
 
 ```bash
 # Compilar con flags de cobertura
-cmake .. -DCMAKE_BUILD_TYPE=Debug -DCMAKE_C_FLAGS="--coverage" -DCMAKE_CXX_FLAGS="--coverage"
+cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_FLAGS="--coverage" -DCMAKE_CXX_FLAGS="--coverage"
 cmake --build .
 
 # Ejecutar pruebas

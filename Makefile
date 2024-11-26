@@ -57,23 +57,13 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mateo/FacultadMate/Sistemas/Lab2/so-i-24-chp2-mateoUNC
+CMAKE_SOURCE_DIR = /home/mateo/FacultadMate/Sistemas/Lab3/so-i-24-chp3-mateoUNC/lib/memory
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mateo/FacultadMate/Sistemas/Lab2/so-i-24-chp2-mateoUNC
+CMAKE_BINARY_DIR = /home/mateo/FacultadMate/Sistemas/Lab3/so-i-24-chp3-mateoUNC/lib/memory/shell
 
 #=============================================================================
 # Targets provided globally by CMake.
-
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-.PHONY : test/fast
 
 # Special rule for the target edit_cache
 edit_cache:
@@ -95,11 +85,56 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\" \"library\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+.PHONY : list_install_components/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
+
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mateo/FacultadMate/Sistemas/Lab2/so-i-24-chp2-mateoUNC/CMakeFiles /home/mateo/FacultadMate/Sistemas/Lab2/so-i-24-chp2-mateoUNC//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mateo/FacultadMate/Sistemas/Lab3/so-i-24-chp3-mateoUNC/lib/memory/shell/CMakeFiles /home/mateo/FacultadMate/Sistemas/Lab3/so-i-24-chp3-mateoUNC/lib/memory/shell//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mateo/FacultadMate/Sistemas/Lab2/so-i-24-chp2-mateoUNC/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mateo/FacultadMate/Sistemas/Lab3/so-i-24-chp3-mateoUNC/lib/memory/shell/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -127,6 +162,58 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named memory
+
+# Build rule for target.
+memory: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 memory
+.PHONY : memory
+
+# fast build rule for target.
+memory/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/memory.dir/build.make CMakeFiles/memory.dir/build
+.PHONY : memory/fast
+
+#=============================================================================
+# Target rules for targets named main_exec
+
+# Build rule for target.
+main_exec: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 main_exec
+.PHONY : main_exec
+
+# fast build rule for target.
+main_exec/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_exec.dir/build.make CMakeFiles/main_exec.dir/build
+.PHONY : main_exec/fast
+
+#=============================================================================
+# Target rules for targets named test_all
+
+# Build rule for target.
+test_all: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_all
+.PHONY : test_all
+
+# fast build rule for target.
+test_all/fast:
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_all.dir/build.make test/CMakeFiles/test_all.dir/build
+.PHONY : test_all/fast
+
+#=============================================================================
+# Target rules for targets named unity
+
+# Build rule for target.
+unity: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 unity
+.PHONY : unity
+
+# fast build rule for target.
+unity/fast:
+	$(MAKE) $(MAKESILENT) -f test/Unity/CMakeFiles/unity.dir/build.make test/Unity/CMakeFiles/unity.dir/build
+.PHONY : unity/fast
+
+#=============================================================================
 # Target rules for targets named Experimental
 
 # Build rule for target.
@@ -136,7 +223,7 @@ Experimental: cmake_check_build_system
 
 # fast build rule for target.
 Experimental/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Experimental.dir/build.make CMakeFiles/Experimental.dir/build
+	$(MAKE) $(MAKESILENT) -f shell/CMakeFiles/Experimental.dir/build.make shell/CMakeFiles/Experimental.dir/build
 .PHONY : Experimental/fast
 
 #=============================================================================
@@ -149,7 +236,7 @@ Nightly: cmake_check_build_system
 
 # fast build rule for target.
 Nightly/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Nightly.dir/build.make CMakeFiles/Nightly.dir/build
+	$(MAKE) $(MAKESILENT) -f shell/CMakeFiles/Nightly.dir/build.make shell/CMakeFiles/Nightly.dir/build
 .PHONY : Nightly/fast
 
 #=============================================================================
@@ -162,7 +249,7 @@ Continuous: cmake_check_build_system
 
 # fast build rule for target.
 Continuous/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Continuous.dir/build.make CMakeFiles/Continuous.dir/build
+	$(MAKE) $(MAKESILENT) -f shell/CMakeFiles/Continuous.dir/build.make shell/CMakeFiles/Continuous.dir/build
 .PHONY : Continuous/fast
 
 #=============================================================================
@@ -175,7 +262,7 @@ NightlyMemoryCheck: cmake_check_build_system
 
 # fast build rule for target.
 NightlyMemoryCheck/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/NightlyMemoryCheck.dir/build.make CMakeFiles/NightlyMemoryCheck.dir/build
+	$(MAKE) $(MAKESILENT) -f shell/CMakeFiles/NightlyMemoryCheck.dir/build.make shell/CMakeFiles/NightlyMemoryCheck.dir/build
 .PHONY : NightlyMemoryCheck/fast
 
 #=============================================================================
@@ -188,7 +275,7 @@ NightlyStart: cmake_check_build_system
 
 # fast build rule for target.
 NightlyStart/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/NightlyStart.dir/build.make CMakeFiles/NightlyStart.dir/build
+	$(MAKE) $(MAKESILENT) -f shell/CMakeFiles/NightlyStart.dir/build.make shell/CMakeFiles/NightlyStart.dir/build
 .PHONY : NightlyStart/fast
 
 #=============================================================================
@@ -201,7 +288,7 @@ NightlyUpdate: cmake_check_build_system
 
 # fast build rule for target.
 NightlyUpdate/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/NightlyUpdate.dir/build.make CMakeFiles/NightlyUpdate.dir/build
+	$(MAKE) $(MAKESILENT) -f shell/CMakeFiles/NightlyUpdate.dir/build.make shell/CMakeFiles/NightlyUpdate.dir/build
 .PHONY : NightlyUpdate/fast
 
 #=============================================================================
@@ -214,7 +301,7 @@ NightlyConfigure: cmake_check_build_system
 
 # fast build rule for target.
 NightlyConfigure/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/NightlyConfigure.dir/build.make CMakeFiles/NightlyConfigure.dir/build
+	$(MAKE) $(MAKESILENT) -f shell/CMakeFiles/NightlyConfigure.dir/build.make shell/CMakeFiles/NightlyConfigure.dir/build
 .PHONY : NightlyConfigure/fast
 
 #=============================================================================
@@ -227,7 +314,7 @@ NightlyBuild: cmake_check_build_system
 
 # fast build rule for target.
 NightlyBuild/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/NightlyBuild.dir/build.make CMakeFiles/NightlyBuild.dir/build
+	$(MAKE) $(MAKESILENT) -f shell/CMakeFiles/NightlyBuild.dir/build.make shell/CMakeFiles/NightlyBuild.dir/build
 .PHONY : NightlyBuild/fast
 
 #=============================================================================
@@ -240,7 +327,7 @@ NightlyTest: cmake_check_build_system
 
 # fast build rule for target.
 NightlyTest/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/NightlyTest.dir/build.make CMakeFiles/NightlyTest.dir/build
+	$(MAKE) $(MAKESILENT) -f shell/CMakeFiles/NightlyTest.dir/build.make shell/CMakeFiles/NightlyTest.dir/build
 .PHONY : NightlyTest/fast
 
 #=============================================================================
@@ -253,7 +340,7 @@ NightlyCoverage: cmake_check_build_system
 
 # fast build rule for target.
 NightlyCoverage/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/NightlyCoverage.dir/build.make CMakeFiles/NightlyCoverage.dir/build
+	$(MAKE) $(MAKESILENT) -f shell/CMakeFiles/NightlyCoverage.dir/build.make shell/CMakeFiles/NightlyCoverage.dir/build
 .PHONY : NightlyCoverage/fast
 
 #=============================================================================
@@ -266,7 +353,7 @@ NightlyMemCheck: cmake_check_build_system
 
 # fast build rule for target.
 NightlyMemCheck/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/NightlyMemCheck.dir/build.make CMakeFiles/NightlyMemCheck.dir/build
+	$(MAKE) $(MAKESILENT) -f shell/CMakeFiles/NightlyMemCheck.dir/build.make shell/CMakeFiles/NightlyMemCheck.dir/build
 .PHONY : NightlyMemCheck/fast
 
 #=============================================================================
@@ -279,7 +366,7 @@ NightlySubmit: cmake_check_build_system
 
 # fast build rule for target.
 NightlySubmit/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/NightlySubmit.dir/build.make CMakeFiles/NightlySubmit.dir/build
+	$(MAKE) $(MAKESILENT) -f shell/CMakeFiles/NightlySubmit.dir/build.make shell/CMakeFiles/NightlySubmit.dir/build
 .PHONY : NightlySubmit/fast
 
 #=============================================================================
@@ -292,7 +379,7 @@ ExperimentalStart: cmake_check_build_system
 
 # fast build rule for target.
 ExperimentalStart/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExperimentalStart.dir/build.make CMakeFiles/ExperimentalStart.dir/build
+	$(MAKE) $(MAKESILENT) -f shell/CMakeFiles/ExperimentalStart.dir/build.make shell/CMakeFiles/ExperimentalStart.dir/build
 .PHONY : ExperimentalStart/fast
 
 #=============================================================================
@@ -305,7 +392,7 @@ ExperimentalUpdate: cmake_check_build_system
 
 # fast build rule for target.
 ExperimentalUpdate/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExperimentalUpdate.dir/build.make CMakeFiles/ExperimentalUpdate.dir/build
+	$(MAKE) $(MAKESILENT) -f shell/CMakeFiles/ExperimentalUpdate.dir/build.make shell/CMakeFiles/ExperimentalUpdate.dir/build
 .PHONY : ExperimentalUpdate/fast
 
 #=============================================================================
@@ -318,7 +405,7 @@ ExperimentalConfigure: cmake_check_build_system
 
 # fast build rule for target.
 ExperimentalConfigure/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExperimentalConfigure.dir/build.make CMakeFiles/ExperimentalConfigure.dir/build
+	$(MAKE) $(MAKESILENT) -f shell/CMakeFiles/ExperimentalConfigure.dir/build.make shell/CMakeFiles/ExperimentalConfigure.dir/build
 .PHONY : ExperimentalConfigure/fast
 
 #=============================================================================
@@ -331,7 +418,7 @@ ExperimentalBuild: cmake_check_build_system
 
 # fast build rule for target.
 ExperimentalBuild/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExperimentalBuild.dir/build.make CMakeFiles/ExperimentalBuild.dir/build
+	$(MAKE) $(MAKESILENT) -f shell/CMakeFiles/ExperimentalBuild.dir/build.make shell/CMakeFiles/ExperimentalBuild.dir/build
 .PHONY : ExperimentalBuild/fast
 
 #=============================================================================
@@ -344,7 +431,7 @@ ExperimentalTest: cmake_check_build_system
 
 # fast build rule for target.
 ExperimentalTest/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExperimentalTest.dir/build.make CMakeFiles/ExperimentalTest.dir/build
+	$(MAKE) $(MAKESILENT) -f shell/CMakeFiles/ExperimentalTest.dir/build.make shell/CMakeFiles/ExperimentalTest.dir/build
 .PHONY : ExperimentalTest/fast
 
 #=============================================================================
@@ -357,7 +444,7 @@ ExperimentalCoverage: cmake_check_build_system
 
 # fast build rule for target.
 ExperimentalCoverage/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExperimentalCoverage.dir/build.make CMakeFiles/ExperimentalCoverage.dir/build
+	$(MAKE) $(MAKESILENT) -f shell/CMakeFiles/ExperimentalCoverage.dir/build.make shell/CMakeFiles/ExperimentalCoverage.dir/build
 .PHONY : ExperimentalCoverage/fast
 
 #=============================================================================
@@ -370,7 +457,7 @@ ExperimentalMemCheck: cmake_check_build_system
 
 # fast build rule for target.
 ExperimentalMemCheck/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExperimentalMemCheck.dir/build.make CMakeFiles/ExperimentalMemCheck.dir/build
+	$(MAKE) $(MAKESILENT) -f shell/CMakeFiles/ExperimentalMemCheck.dir/build.make shell/CMakeFiles/ExperimentalMemCheck.dir/build
 .PHONY : ExperimentalMemCheck/fast
 
 #=============================================================================
@@ -383,7 +470,7 @@ ExperimentalSubmit: cmake_check_build_system
 
 # fast build rule for target.
 ExperimentalSubmit/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ExperimentalSubmit.dir/build.make CMakeFiles/ExperimentalSubmit.dir/build
+	$(MAKE) $(MAKESILENT) -f shell/CMakeFiles/ExperimentalSubmit.dir/build.make shell/CMakeFiles/ExperimentalSubmit.dir/build
 .PHONY : ExperimentalSubmit/fast
 
 #=============================================================================
@@ -396,7 +483,7 @@ ContinuousStart: cmake_check_build_system
 
 # fast build rule for target.
 ContinuousStart/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ContinuousStart.dir/build.make CMakeFiles/ContinuousStart.dir/build
+	$(MAKE) $(MAKESILENT) -f shell/CMakeFiles/ContinuousStart.dir/build.make shell/CMakeFiles/ContinuousStart.dir/build
 .PHONY : ContinuousStart/fast
 
 #=============================================================================
@@ -409,7 +496,7 @@ ContinuousUpdate: cmake_check_build_system
 
 # fast build rule for target.
 ContinuousUpdate/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ContinuousUpdate.dir/build.make CMakeFiles/ContinuousUpdate.dir/build
+	$(MAKE) $(MAKESILENT) -f shell/CMakeFiles/ContinuousUpdate.dir/build.make shell/CMakeFiles/ContinuousUpdate.dir/build
 .PHONY : ContinuousUpdate/fast
 
 #=============================================================================
@@ -422,7 +509,7 @@ ContinuousConfigure: cmake_check_build_system
 
 # fast build rule for target.
 ContinuousConfigure/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ContinuousConfigure.dir/build.make CMakeFiles/ContinuousConfigure.dir/build
+	$(MAKE) $(MAKESILENT) -f shell/CMakeFiles/ContinuousConfigure.dir/build.make shell/CMakeFiles/ContinuousConfigure.dir/build
 .PHONY : ContinuousConfigure/fast
 
 #=============================================================================
@@ -435,7 +522,7 @@ ContinuousBuild: cmake_check_build_system
 
 # fast build rule for target.
 ContinuousBuild/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ContinuousBuild.dir/build.make CMakeFiles/ContinuousBuild.dir/build
+	$(MAKE) $(MAKESILENT) -f shell/CMakeFiles/ContinuousBuild.dir/build.make shell/CMakeFiles/ContinuousBuild.dir/build
 .PHONY : ContinuousBuild/fast
 
 #=============================================================================
@@ -448,7 +535,7 @@ ContinuousTest: cmake_check_build_system
 
 # fast build rule for target.
 ContinuousTest/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ContinuousTest.dir/build.make CMakeFiles/ContinuousTest.dir/build
+	$(MAKE) $(MAKESILENT) -f shell/CMakeFiles/ContinuousTest.dir/build.make shell/CMakeFiles/ContinuousTest.dir/build
 .PHONY : ContinuousTest/fast
 
 #=============================================================================
@@ -461,7 +548,7 @@ ContinuousCoverage: cmake_check_build_system
 
 # fast build rule for target.
 ContinuousCoverage/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ContinuousCoverage.dir/build.make CMakeFiles/ContinuousCoverage.dir/build
+	$(MAKE) $(MAKESILENT) -f shell/CMakeFiles/ContinuousCoverage.dir/build.make shell/CMakeFiles/ContinuousCoverage.dir/build
 .PHONY : ContinuousCoverage/fast
 
 #=============================================================================
@@ -474,7 +561,7 @@ ContinuousMemCheck: cmake_check_build_system
 
 # fast build rule for target.
 ContinuousMemCheck/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ContinuousMemCheck.dir/build.make CMakeFiles/ContinuousMemCheck.dir/build
+	$(MAKE) $(MAKESILENT) -f shell/CMakeFiles/ContinuousMemCheck.dir/build.make shell/CMakeFiles/ContinuousMemCheck.dir/build
 .PHONY : ContinuousMemCheck/fast
 
 #=============================================================================
@@ -487,7 +574,7 @@ ContinuousSubmit: cmake_check_build_system
 
 # fast build rule for target.
 ContinuousSubmit/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ContinuousSubmit.dir/build.make CMakeFiles/ContinuousSubmit.dir/build
+	$(MAKE) $(MAKESILENT) -f shell/CMakeFiles/ContinuousSubmit.dir/build.make shell/CMakeFiles/ContinuousSubmit.dir/build
 .PHONY : ContinuousSubmit/fast
 
 #=============================================================================
@@ -500,7 +587,7 @@ shell: cmake_check_build_system
 
 # fast build rule for target.
 shell/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/shell.dir/build.make CMakeFiles/shell.dir/build
+	$(MAKE) $(MAKESILENT) -f shell/CMakeFiles/shell.dir/build.make shell/CMakeFiles/shell.dir/build
 .PHONY : shell/fast
 
 #=============================================================================
@@ -513,7 +600,7 @@ metricShell: cmake_check_build_system
 
 # fast build rule for target.
 metricShell/fast:
-	$(MAKE) $(MAKESILENT) -f monitor/CMakeFiles/metricShell.dir/build.make monitor/CMakeFiles/metricShell.dir/build
+	$(MAKE) $(MAKESILENT) -f shell/monitor/CMakeFiles/metricShell.dir/build.make shell/monitor/CMakeFiles/metricShell.dir/build
 .PHONY : metricShell/fast
 
 #=============================================================================
@@ -526,39 +613,15 @@ test_runner: cmake_check_build_system
 
 # fast build rule for target.
 test_runner/fast:
-	$(MAKE) $(MAKESILENT) -f Testing/CMakeFiles/test_runner.dir/build.make Testing/CMakeFiles/test_runner.dir/build
+	$(MAKE) $(MAKESILENT) -f shell/Testing/CMakeFiles/test_runner.dir/build.make shell/Testing/CMakeFiles/test_runner.dir/build
 .PHONY : test_runner/fast
-
-src/commands.o: src/commands.c.o
-.PHONY : src/commands.o
-
-# target to build an object file
-src/commands.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/shell.dir/build.make CMakeFiles/shell.dir/src/commands.c.o
-.PHONY : src/commands.c.o
-
-src/commands.i: src/commands.c.i
-.PHONY : src/commands.i
-
-# target to preprocess a source file
-src/commands.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/shell.dir/build.make CMakeFiles/shell.dir/src/commands.c.i
-.PHONY : src/commands.c.i
-
-src/commands.s: src/commands.c.s
-.PHONY : src/commands.s
-
-# target to generate assembly for a file
-src/commands.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/shell.dir/build.make CMakeFiles/shell.dir/src/commands.c.s
-.PHONY : src/commands.c.s
 
 src/main.o: src/main.c.o
 .PHONY : src/main.o
 
 # target to build an object file
 src/main.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/shell.dir/build.make CMakeFiles/shell.dir/src/main.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_exec.dir/build.make CMakeFiles/main_exec.dir/src/main.c.o
 .PHONY : src/main.c.o
 
 src/main.i: src/main.c.i
@@ -566,7 +629,7 @@ src/main.i: src/main.c.i
 
 # target to preprocess a source file
 src/main.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/shell.dir/build.make CMakeFiles/shell.dir/src/main.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_exec.dir/build.make CMakeFiles/main_exec.dir/src/main.c.i
 .PHONY : src/main.c.i
 
 src/main.s: src/main.c.s
@@ -574,152 +637,32 @@ src/main.s: src/main.c.s
 
 # target to generate assembly for a file
 src/main.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/shell.dir/build.make CMakeFiles/shell.dir/src/main.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_exec.dir/build.make CMakeFiles/main_exec.dir/src/main.c.s
 .PHONY : src/main.c.s
 
-src/monitorHandle.o: src/monitorHandle.c.o
-.PHONY : src/monitorHandle.o
+src/memory.o: src/memory.c.o
+.PHONY : src/memory.o
 
 # target to build an object file
-src/monitorHandle.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/shell.dir/build.make CMakeFiles/shell.dir/src/monitorHandle.c.o
-.PHONY : src/monitorHandle.c.o
+src/memory.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/memory.dir/build.make CMakeFiles/memory.dir/src/memory.c.o
+.PHONY : src/memory.c.o
 
-src/monitorHandle.i: src/monitorHandle.c.i
-.PHONY : src/monitorHandle.i
-
-# target to preprocess a source file
-src/monitorHandle.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/shell.dir/build.make CMakeFiles/shell.dir/src/monitorHandle.c.i
-.PHONY : src/monitorHandle.c.i
-
-src/monitorHandle.s: src/monitorHandle.c.s
-.PHONY : src/monitorHandle.s
-
-# target to generate assembly for a file
-src/monitorHandle.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/shell.dir/build.make CMakeFiles/shell.dir/src/monitorHandle.c.s
-.PHONY : src/monitorHandle.c.s
-
-src/parser.o: src/parser.c.o
-.PHONY : src/parser.o
-
-# target to build an object file
-src/parser.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/shell.dir/build.make CMakeFiles/shell.dir/src/parser.c.o
-.PHONY : src/parser.c.o
-
-src/parser.i: src/parser.c.i
-.PHONY : src/parser.i
+src/memory.i: src/memory.c.i
+.PHONY : src/memory.i
 
 # target to preprocess a source file
-src/parser.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/shell.dir/build.make CMakeFiles/shell.dir/src/parser.c.i
-.PHONY : src/parser.c.i
+src/memory.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/memory.dir/build.make CMakeFiles/memory.dir/src/memory.c.i
+.PHONY : src/memory.c.i
 
-src/parser.s: src/parser.c.s
-.PHONY : src/parser.s
-
-# target to generate assembly for a file
-src/parser.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/shell.dir/build.make CMakeFiles/shell.dir/src/parser.c.s
-.PHONY : src/parser.c.s
-
-src/pipes.o: src/pipes.c.o
-.PHONY : src/pipes.o
-
-# target to build an object file
-src/pipes.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/shell.dir/build.make CMakeFiles/shell.dir/src/pipes.c.o
-.PHONY : src/pipes.c.o
-
-src/pipes.i: src/pipes.c.i
-.PHONY : src/pipes.i
-
-# target to preprocess a source file
-src/pipes.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/shell.dir/build.make CMakeFiles/shell.dir/src/pipes.c.i
-.PHONY : src/pipes.c.i
-
-src/pipes.s: src/pipes.c.s
-.PHONY : src/pipes.s
+src/memory.s: src/memory.c.s
+.PHONY : src/memory.s
 
 # target to generate assembly for a file
-src/pipes.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/shell.dir/build.make CMakeFiles/shell.dir/src/pipes.c.s
-.PHONY : src/pipes.c.s
-
-src/prompt.o: src/prompt.c.o
-.PHONY : src/prompt.o
-
-# target to build an object file
-src/prompt.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/shell.dir/build.make CMakeFiles/shell.dir/src/prompt.c.o
-.PHONY : src/prompt.c.o
-
-src/prompt.i: src/prompt.c.i
-.PHONY : src/prompt.i
-
-# target to preprocess a source file
-src/prompt.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/shell.dir/build.make CMakeFiles/shell.dir/src/prompt.c.i
-.PHONY : src/prompt.c.i
-
-src/prompt.s: src/prompt.c.s
-.PHONY : src/prompt.s
-
-# target to generate assembly for a file
-src/prompt.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/shell.dir/build.make CMakeFiles/shell.dir/src/prompt.c.s
-.PHONY : src/prompt.c.s
-
-src/signals.o: src/signals.c.o
-.PHONY : src/signals.o
-
-# target to build an object file
-src/signals.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/shell.dir/build.make CMakeFiles/shell.dir/src/signals.c.o
-.PHONY : src/signals.c.o
-
-src/signals.i: src/signals.c.i
-.PHONY : src/signals.i
-
-# target to preprocess a source file
-src/signals.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/shell.dir/build.make CMakeFiles/shell.dir/src/signals.c.i
-.PHONY : src/signals.c.i
-
-src/signals.s: src/signals.c.s
-.PHONY : src/signals.s
-
-# target to generate assembly for a file
-src/signals.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/shell.dir/build.make CMakeFiles/shell.dir/src/signals.c.s
-.PHONY : src/signals.c.s
-
-src/utils.o: src/utils.c.o
-.PHONY : src/utils.o
-
-# target to build an object file
-src/utils.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/shell.dir/build.make CMakeFiles/shell.dir/src/utils.c.o
-.PHONY : src/utils.c.o
-
-src/utils.i: src/utils.c.i
-.PHONY : src/utils.i
-
-# target to preprocess a source file
-src/utils.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/shell.dir/build.make CMakeFiles/shell.dir/src/utils.c.i
-.PHONY : src/utils.c.i
-
-src/utils.s: src/utils.c.s
-.PHONY : src/utils.s
-
-# target to generate assembly for a file
-src/utils.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/shell.dir/build.make CMakeFiles/shell.dir/src/utils.c.s
-.PHONY : src/utils.c.s
+src/memory.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/memory.dir/build.make CMakeFiles/memory.dir/src/memory.c.s
+.PHONY : src/memory.c.s
 
 # Help Target
 help:
@@ -728,8 +671,11 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
+	@echo "... install"
+	@echo "... install/local"
+	@echo "... install/strip"
+	@echo "... list_install_components"
 	@echo "... rebuild_cache"
-	@echo "... test"
 	@echo "... Continuous"
 	@echo "... ContinuousBuild"
 	@echo "... ContinuousConfigure"
@@ -758,33 +704,19 @@ help:
 	@echo "... NightlySubmit"
 	@echo "... NightlyTest"
 	@echo "... NightlyUpdate"
+	@echo "... main_exec"
+	@echo "... memory"
 	@echo "... metricShell"
 	@echo "... shell"
+	@echo "... test_all"
 	@echo "... test_runner"
-	@echo "... src/commands.o"
-	@echo "... src/commands.i"
-	@echo "... src/commands.s"
+	@echo "... unity"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
-	@echo "... src/monitorHandle.o"
-	@echo "... src/monitorHandle.i"
-	@echo "... src/monitorHandle.s"
-	@echo "... src/parser.o"
-	@echo "... src/parser.i"
-	@echo "... src/parser.s"
-	@echo "... src/pipes.o"
-	@echo "... src/pipes.i"
-	@echo "... src/pipes.s"
-	@echo "... src/prompt.o"
-	@echo "... src/prompt.i"
-	@echo "... src/prompt.s"
-	@echo "... src/signals.o"
-	@echo "... src/signals.i"
-	@echo "... src/signals.s"
-	@echo "... src/utils.o"
-	@echo "... src/utils.i"
-	@echo "... src/utils.s"
+	@echo "... src/memory.o"
+	@echo "... src/memory.i"
+	@echo "... src/memory.s"
 .PHONY : help
 
 

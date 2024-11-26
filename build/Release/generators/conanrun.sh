@@ -1,0 +1,1 @@
+. "/home/mateo/FacultadMate/Sistemas/Lab3/so-i-24-chp3-mateoUNC/shell/build/Release/generators/conanrunenv-release-x86_64.sh"

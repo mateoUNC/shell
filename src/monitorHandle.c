@@ -92,9 +92,9 @@ void start_monitor() {
     }
 
     // Construir la ruta completa a metricShell
-    const char *suffix = "/metricShell";
+    const char *metric_suffix = "/metricShell";
     char metric_path[PATH_MAX];
-    snprintf(metric_path, sizeof(metric_path), "%s%s", exe_dir, suffix);
+    snprintf(metric_path, sizeof(metric_path), "%s%s", exe_dir, metric_suffix);
 
     // Construir la ruta completa a config.json
     const char *config_suffix = "/config.json";
@@ -108,8 +108,8 @@ void start_monitor() {
     }
 
     // Crear proceso hijo para ejecutar metricShell
-    pid_t pid = fork();
-    if (pid == 0) {
+    pid_t metric_pid = fork();
+    if (metric_pid == 0) {
       // Proceso hijo: ejecuta metricShell con config.json como argumento
       printf("Ejecutando metricShell en el proceso hijo\n");
       execl(metric_path, "metricShell", config_path, NULL);
@@ -117,11 +117,11 @@ void start_monitor() {
       // Si execl falla
       perror("Error al ejecutar metricShell");
       exit(EXIT_FAILURE);
-    } else if (pid < 0) {
-      perror("Error al crear el proceso de monitoreo");
+    } else if (metric_pid < 0) {
+      perror("Error al crear el proceso de metricShell");
     } else {
-      monitor_pid = pid;
-      printf("Monitor iniciado con PID %d\n", monitor_pid);
+      monitor_pid = metric_pid;
+      printf("MetricShell iniciado con PID %d\n", monitor_pid);
     }
   }
 }
@@ -215,6 +215,13 @@ void status_monitor() {
         printf("Running Processes: %.0f\n", running_processes->valuedouble);
       }
 
+      // Procesar la fragmentación de memoria antes de eliminar el objeto JSON
+      cJSON *memory_fragmentation = cJSON_GetObjectItem(json, "memory_fragmentation");
+      if (cJSON_IsNumber(memory_fragmentation)) {
+        printf("Memory Fragmentation: %.2f%%\n", memory_fragmentation->valuedouble * 100);
+      }
+
+      // Eliminar el objeto JSON después de usarlo
       cJSON_Delete(json);
     }
 

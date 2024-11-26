@@ -1,0 +1,43 @@
+file(REMOVE_RECURSE
+  "../bin/test_runner"
+  "../bin/test_runner.pdb"
+  "CMakeFiles/test_runner.dir/__/src/commands.c.o"
+  "CMakeFiles/test_runner.dir/__/src/commands.c.o.d"
+  "CMakeFiles/test_runner.dir/__/src/file_finder.c.o"
+  "CMakeFiles/test_runner.dir/__/src/file_finder.c.o.d"
+  "CMakeFiles/test_runner.dir/__/src/monitorHandle.c.o"
+  "CMakeFiles/test_runner.dir/__/src/monitorHandle.c.o.d"
+  "CMakeFiles/test_runner.dir/__/src/parser.c.o"
+  "CMakeFiles/test_runner.dir/__/src/parser.c.o.d"
+  "CMakeFiles/test_runner.dir/__/src/signals.c.o"
+  "CMakeFiles/test_runner.dir/__/src/signals.c.o.d"
+  "CMakeFiles/test_runner.dir/__/src/utils.c.o"
+  "CMakeFiles/test_runner.dir/__/src/utils.c.o.d"
+  "CMakeFiles/test_runner.dir/src/test_commands.c.o"
+  "CMakeFiles/test_runner.dir/src/test_commands.c.o.d"
+  "CMakeFiles/test_runner.dir/src/test_fusion.c.o"
+  "CMakeFiles/test_runner.dir/src/test_fusion.c.o.d"
+  "CMakeFiles/test_runner.dir/src/test_main.c.o"
+  "CMakeFiles/test_runner.dir/src/test_main.c.o.d"
+  "CMakeFiles/test_runner.dir/src/test_malloc.c.o"
+  "CMakeFiles/test_runner.dir/src/test_malloc.c.o.d"
+  "CMakeFiles/test_runner.dir/src/test_mocks.c.o"
+  "CMakeFiles/test_runner.dir/src/test_mocks.c.o.d"
+  "CMakeFiles/test_runner.dir/src/test_monitorHandler.c.o"
+  "CMakeFiles/test_runner.dir/src/test_monitorHandler.c.o.d"
+  "CMakeFiles/test_runner.dir/src/test_parser.c.o"
+  "CMakeFiles/test_runner.dir/src/test_parser.c.o.d"
+  "CMakeFiles/test_runner.dir/src/test_redireccion.c.o"
+  "CMakeFiles/test_runner.dir/src/test_redireccion.c.o.d"
+  "CMakeFiles/test_runner.dir/src/test_signals.c.o"
+  "CMakeFiles/test_runner.dir/src/test_signals.c.o.d"
+  "CMakeFiles/test_runner.dir/src/test_utils.c.o"
+  "CMakeFiles/test_runner.dir/src/test_utils.c.o.d"
+  "CMakeFiles/test_runner.dir/src/test_worst_fit.c.o"
+  "CMakeFiles/test_runner.dir/src/test_worst_fit.c.o.d"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang C)
+  include(CMakeFiles/test_runner.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

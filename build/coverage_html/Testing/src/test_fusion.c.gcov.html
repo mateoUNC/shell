@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - coverage.filtered.info - Testing/src/test_fusion.c</title>
+  <link rel="stylesheet" type="text/css" href="../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../index.html">top level</a> - <a href="index.html">Testing/src</a> - test_fusion.c<span style="font-size: 80%;"> (source / <a href="test_fusion.c.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">coverage.filtered.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">25</td>
+            <td class="headerCovTableEntry">25</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2024-11-26 17:03:50</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">1</td>
+            <td class="headerCovTableEntry">1</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
+          </tr>
+          <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : // test/src/test_fusion.c</a>
+<a name="2"><span class="lineNum">       2 </span>            : </a>
+<a name="3"><span class="lineNum">       3 </span>            : #include &quot;unity.h&quot;</a>
+<a name="4"><span class="lineNum">       4 </span>            : #include &quot;memory.h&quot;</a>
+<a name="5"><span class="lineNum">       5 </span>            : #include &quot;test_fusion.h&quot;</a>
+<a name="6"><span class="lineNum">       6 </span>            : #include &lt;stdio.h&gt; // Para printf</a>
+<a name="7"><span class="lineNum">       7 </span>            : </a>
+<a name="8"><span class="lineNum">       8 </span>            : // Función que se ejecuta antes de cada prueba</a>
+<a name="9"><span class="lineNum">       9 </span>            : static void setUp_fusion(void) {</a>
+<a name="10"><span class="lineNum">      10 </span>            :     if (initialize_logger(&quot;memory_log.txt&quot;) != 0) {</a>
+<a name="11"><span class="lineNum">      11 </span>            :         printf(&quot;Failed to initialize logger in setUp_fusion.\n&quot;);</a>
+<a name="12"><span class="lineNum">      12 </span>            :     }</a>
+<a name="13"><span class="lineNum">      13 </span>            :     malloc_control(FIRST_FIT);</a>
+<a name="14"><span class="lineNum">      14 </span>            : }</a>
+<a name="15"><span class="lineNum">      15 </span>            : </a>
+<a name="16"><span class="lineNum">      16 </span>            : static void tearDown_fusion(void) {</a>
+<a name="17"><span class="lineNum">      17 </span>            :     finalize_logger();</a>
+<a name="18"><span class="lineNum">      18 </span>            : }</a>
+<a name="19"><span class="lineNum">      19 </span>            : </a>
+<a name="20"><span class="lineNum">      20 </span>            : // Prueba que verifica que los bloques se fusionan correctamente al liberar</a>
+<a name="21"><span class="lineNum">      21 </span><span class="lineCov">          4 : void test_fusion_of_adjacent_blocks(void) {</span></a>
+<a name="22"><span class="lineNum">      22 </span>            :     // Paso 1: Asignar múltiples bloques</a>
+<a name="23"><span class="lineNum">      23 </span><span class="lineCov">          4 :     void *ptr1 = my_malloc(32);</span></a>
+<a name="24"><span class="lineNum">      24 </span><span class="lineCov">          4 :     TEST_ASSERT_NOT_NULL(ptr1);</span></a>
+<a name="25"><span class="lineNum">      25 </span><span class="lineCov">          4 :     void *ptr2 = my_malloc(64);</span></a>
+<a name="26"><span class="lineNum">      26 </span><span class="lineCov">          4 :     TEST_ASSERT_NOT_NULL(ptr2);</span></a>
+<a name="27"><span class="lineNum">      27 </span><span class="lineCov">          4 :     void *ptr3 = my_malloc(128);</span></a>
+<a name="28"><span class="lineNum">      28 </span><span class="lineCov">          4 :     TEST_ASSERT_NOT_NULL(ptr3);</span></a>
+<a name="29"><span class="lineNum">      29 </span>            : </a>
+<a name="30"><span class="lineNum">      30 </span>            :     // Paso 2: Liberar el segundo bloque y verificar</a>
+<a name="31"><span class="lineNum">      31 </span><span class="lineCov">          4 :     printf(&quot;Liberando ptr2 (64 bytes)...\n&quot;);</span></a>
+<a name="32"><span class="lineNum">      32 </span><span class="lineCov">          4 :     my_free(ptr2);</span></a>
+<a name="33"><span class="lineNum">      33 </span><span class="lineCov">          4 :     t_block block2 = get_block(ptr2);</span></a>
+<a name="34"><span class="lineNum">      34 </span><span class="lineCov">          4 :     TEST_ASSERT_NOT_NULL(block2);</span></a>
+<a name="35"><span class="lineNum">      35 </span><span class="lineCov">          4 :     TEST_ASSERT(block2-&gt;free == 1);</span></a>
+<a name="36"><span class="lineNum">      36 </span>            : </a>
+<a name="37"><span class="lineNum">      37 </span>            :     // Paso 3: Liberar el primer bloque y verificar fusión</a>
+<a name="38"><span class="lineNum">      38 </span><span class="lineCov">          4 :     printf(&quot;Liberando ptr1 (32 bytes)...\n&quot;);</span></a>
+<a name="39"><span class="lineNum">      39 </span><span class="lineCov">          4 :     my_free(ptr1);</span></a>
+<a name="40"><span class="lineNum">      40 </span><span class="lineCov">          4 :     t_block block1 = get_block(ptr1);</span></a>
+<a name="41"><span class="lineNum">      41 </span><span class="lineCov">          4 :     TEST_ASSERT_NOT_NULL(block1);</span></a>
+<a name="42"><span class="lineNum">      42 </span><span class="lineCov">          4 :     TEST_ASSERT(block1-&gt;free == 1);</span></a>
+<a name="43"><span class="lineNum">      43 </span>            :     // Verificar que el bloque 1 y 2 se han fusionado</a>
+<a name="44"><span class="lineNum">      44 </span>            :     size_t expected_size1 = 32 + 64 + sizeof(struct s_block);</a>
+<a name="45"><span class="lineNum">      45 </span><span class="lineCov">          4 :     TEST_ASSERT(block1-&gt;size &gt;= expected_size1);</span></a>
+<a name="46"><span class="lineNum">      46 </span>            : </a>
+<a name="47"><span class="lineNum">      47 </span>            :     // Paso 4: Liberar el tercer bloque y verificar fusión completa</a>
+<a name="48"><span class="lineNum">      48 </span><span class="lineCov">          4 :     printf(&quot;Liberando ptr3 (128 bytes)...\n&quot;);</span></a>
+<a name="49"><span class="lineNum">      49 </span><span class="lineCov">          4 :     my_free(ptr3);</span></a>
+<a name="50"><span class="lineNum">      50 </span><span class="lineCov">          4 :     block1 = get_block(ptr1);</span></a>
+<a name="51"><span class="lineNum">      51 </span>            : </a>
+<a name="52"><span class="lineNum">      52 </span><span class="lineCov">          4 :     TEST_ASSERT_NOT_NULL(block1);</span></a>
+<a name="53"><span class="lineNum">      53 </span>            : </a>
+<a name="54"><span class="lineNum">      54 </span><span class="lineCov">          4 :     TEST_ASSERT(block1-&gt;free == 1);</span></a>
+<a name="55"><span class="lineNum">      55 </span>            :     // Verificar que todos los bloques se han fusionado</a>
+<a name="56"><span class="lineNum">      56 </span>            :     size_t expected_size2 = 32+64 + 128 + 2*sizeof(struct s_block);</a>
+<a name="57"><span class="lineNum">      57 </span><span class="lineCov">          4 :     TEST_ASSERT(block1-&gt;size &gt;= expected_size2);</span></a>
+<a name="58"><span class="lineNum">      58 </span><span class="lineCov">          4 : }</span></a>
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="https://github.com/linux-test-project/lcov" target="_parent">LCOV version 1.16</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

@@ -11,6 +11,9 @@
 #include "test_redireccion.h"
 #include "test_signals.h"
 #include "test_utils.h"
+#include "test_malloc.h"
+#include "test_fusion.h"
+#include "test_worst_fit.h"
 #include "unity.h"
 
 //#include "test_printf.h"
@@ -93,6 +96,11 @@ int main(void) {
   RUN_TEST(test_cat_redireccion_entrada);
   RUN_TEST(test_cat_redireccion_entrada_multilinea);
   RUN_TEST(test_cat_redireccion_entrada_vacia);
+
+  // Pruebas de memory
+  RUN_TEST(test_fusion_of_adjacent_blocks);
+  RUN_TEST(test_worst_fit_allocation);
+  RUN_TEST(test_malloc_simple);
 
   return UNITY_END();
 }

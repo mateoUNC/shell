@@ -6,36 +6,39 @@
 
 #include "prompt.h"
 #include "globals.h"
+#include <unistd.h>
+#include <string.h>
+#include <limits.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
 
 void print_prompt() {
-  char cwd[PATH_MAX];           // Buffer para almacenar el directorio actual
-  char hostname[HOST_NAME_MAX]; // Buffer para almacenar el hostname
-  char *user = getenv("USER");  // Obtener el nombre del usuario
-  char *home = getenv("HOME");  // Obtener el directorio home del usuario
+    char cwd[PATH_MAX];           // Buffer para almacenar el directorio actual
+    char hostname[HOST_NAME_MAX]; // Buffer para almacenar el hostname
+    char *user = getenv("USER");  // Obtener el nombre del usuario
+    char *home = getenv("HOME");  // Obtener el directorio home del usuario
 
-  // Obtener el hostname de la máquina
-  if (gethostname(hostname, sizeof(hostname)) != 0) {
-    perror("Error al obtener el nombre del host");
-    strcpy(hostname, "unknown");
-  }
+    char prompt[512]; // Buffer para construir el prompt final
+    size_t offset = 0;
 
-  // Obtener el directorio actual de trabajo
-  if (getcwd(cwd, sizeof(cwd)) != NULL) {
-    // Si el directorio actual está dentro de HOME, reemplaza esa parte con "~"
-    if (home != NULL && strstr(cwd, home) == cwd) {
-      printf("%s@%s:~%s$ ", user, hostname, cwd + strlen(home));
-    } else {
-      // Si no está dentro de HOME, muestra la ruta completa
-      printf("%s@%s:%s$ ", user, hostname, cwd);
+    // Obtener el hostname de la máquina
+    if (gethostname(hostname, sizeof(hostname)) != 0) {
+        strncpy(hostname, "unknown", sizeof(hostname));
     }
-  } else {
-    perror("Error al obtener el directorio actual");
-  }
 
-  // Vaciar el buffer de salida para mostrar el prompt inmediatamente
-  fflush(stdout);
+    // Obtener el directorio actual de trabajo
+    if (getcwd(cwd, sizeof(cwd)) != NULL) {
+        if (home != NULL && strstr(cwd, home) == cwd) {
+            // Si el directorio actual está dentro de HOME, reemplaza esa parte con "~"
+            offset = snprintf(prompt, sizeof(prompt), "%s@%s:~%s$ ", user, hostname, cwd + strlen(home));
+        } else {
+            // Si no está dentro de HOME, muestra la ruta completa
+            offset = snprintf(prompt, sizeof(prompt), "%s@%s:%s$ ", user, hostname, cwd);
+        }
+    } else {
+        snprintf(prompt, sizeof(prompt), "%s@%s:unknown$ ", user, hostname);
+    }
+
+    // Escribe el prompt directamente en stdout
+    write(STDOUT_FILENO, prompt, offset);
 }

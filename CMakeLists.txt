@@ -12,10 +12,11 @@ project(
 set(CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH} "${CMAKE_BINARY_DIR}/Release/generators")
 
 # Incluir el archivo con la configuración de Conan
-include(${CMAKE_BINARY_DIR}/Release/generators/conan_toolchain.cmake)
+include(${CMAKE_SOURCE_DIR}/build/Release/generators/conan_toolchain.cmake)
 
 # Incluir directorios de encabezados
 include_directories(
+    ${CMAKE_SOURCE_DIR}/lib/memory/include
     ${PROJECT_SOURCE_DIR}/include
     ${PROJECT_SOURCE_DIR}/src
 )
@@ -52,11 +53,12 @@ target_link_libraries(shell PRIVATE
 # Copiar config.json al directorio de salida del ejecutable
 add_custom_command(
     TARGET shell POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E rename
-            ${CMAKE_SOURCE_DIR}/config.json
+    COMMAND ${CMAKE_COMMAND} -E copy
+            ${PROJECT_SOURCE_DIR}/config.json
             $<TARGET_FILE_DIR:shell>/config.json
 )
 
 # Añadir subdirectorios
+add_subdirectory(lib/memory)
 add_subdirectory(monitor)
 add_subdirectory(Testing)

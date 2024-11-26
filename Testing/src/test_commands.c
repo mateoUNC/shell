@@ -10,6 +10,7 @@
 #include "test_mocks.h"
 #include "test_utils.h"
 #include "unity.h"
+#include "file_finder.h"
 
 #include <ctype.h>     // Para isdigit
 #include <errno.h>     // Para obtener el código de error en fallos de sistema

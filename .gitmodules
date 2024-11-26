@@ -1,4 +1,0 @@
-[submodule "monitor"]
-	path = monitor
-	url = git@github.com-universidad:mateoUNC/monitor.git
-
