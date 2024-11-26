@@ -64,7 +64,7 @@ void show_banner() {
 }
 
 int main(int argc, char *argv[]) {
-  //show_banner();
+  show_banner();
 
   // Definición de variables globales
   foreground_pid = 0;
