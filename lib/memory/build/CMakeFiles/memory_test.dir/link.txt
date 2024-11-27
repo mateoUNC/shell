@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/memory_test.dir/src/main.c.o CMakeFiles/memory_test.dir/src/memory.c.o -o memory_test 

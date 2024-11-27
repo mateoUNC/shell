@@ -1,0 +1,125 @@
+=== Memory Allocator Event Log ===
+[2024-11-26 20:48:31] Operation: extend_heap, Size: 64, Ptr: 0x55b972bce028, Block extended using sbrk
+[2024-11-26 20:48:31] Operation: malloc, Size: 64, Ptr: 0x55b972bce028, Initial block created
+[2024-11-26 20:48:31] Operation: extend_heap, Size: 128, Ptr: 0x55b972bce090, Block extended using sbrk
+[2024-11-26 20:48:31] Operation: malloc, Size: 128, Ptr: 0x55b972bce090, Block extended using sbrk
+[2024-11-26 20:48:31] Operation: calloc, Size: 128, Ptr: 0x55b972bce090, Block allocated and zero-initialized
+[2024-11-26 20:48:31] Operation: extend_heap, Size: 128, Ptr: 0x55b972bce138, Block extended using sbrk
+[2024-11-26 20:48:31] Operation: malloc, Size: 128, Ptr: 0x55b972bce138, Block extended using sbrk
+[2024-11-26 20:48:31] Operation: free, Size: 64, Ptr: 0x55b972bce028, Block marked as free
+[2024-11-26 20:48:31] Operation: fusion, Size: 0, Ptr: 0x55b972bce028, Blocks fused
+[2024-11-26 20:48:31] Operation: realloc, Size: 128, Ptr: 0x55b972bce138, Block resized by allocating new block and freeing old block
+[2024-11-26 20:48:31] Operation: free, Size: 128, Ptr: 0x55b972bce090, Block marked as free
+[2024-11-26 20:48:31] Operation: fusion, Size: 0, Ptr: 0x55b972bce028, Blocks fused
+[2024-11-26 20:48:31] Operation: free, Size: 128, Ptr: 0x55b972bce138, Block marked as free
+[2024-11-26 20:48:31] Operation: fusion, Size: 0, Ptr: 0x55b972bce028, Blocks fused
+[2024-11-26 20:51:45] Operation: malloc_control, Size: 0, Ptr: (nil), Set allocation method to FIRST_FIT
+[2024-11-26 20:51:45] Operation: extend_heap, Size: 32, Ptr: 0x55709bc2c028, Block extended using sbrk
+[2024-11-26 20:51:45] Operation: malloc, Size: 32, Ptr: 0x55709bc2c028, Initial block created
+[2024-11-26 20:51:45] Operation: extend_heap, Size: 64, Ptr: 0x55709bc2c070, Block extended using sbrk
+[2024-11-26 20:51:45] Operation: malloc, Size: 64, Ptr: 0x55709bc2c070, Block extended using sbrk
+[2024-11-26 20:51:45] Operation: extend_heap, Size: 128, Ptr: 0x55709bc2c0d8, Block extended using sbrk
+[2024-11-26 20:51:45] Operation: malloc, Size: 128, Ptr: 0x55709bc2c0d8, Block extended using sbrk
+[2024-11-26 20:51:45] Operation: free, Size: 64, Ptr: 0x55709bc2c070, Block marked as free
+[2024-11-26 20:51:45] Operation: fusion, Size: 0, Ptr: 0x55709bc2c070, Blocks fused
+[2024-11-26 20:51:45] Operation: extend_heap, Size: 256, Ptr: 0x55709bc2c180, Block extended using sbrk
+[2024-11-26 20:51:45] Operation: malloc, Size: 256, Ptr: 0x55709bc2c180, Block extended using sbrk
+[2024-11-26 20:51:45] Operation: free, Size: 128, Ptr: 0x55709bc2c0d8, Block marked as free
+[2024-11-26 20:51:45] Operation: fusion, Size: 0, Ptr: 0x55709bc2c070, Blocks fused
+[2024-11-26 20:51:45] Operation: realloc, Size: 256, Ptr: 0x55709bc2c180, Block resized by allocating new block and freeing old block
+[2024-11-26 20:51:45] Operation: split_block, Size: 128, Ptr: 0x55709bc2c0d8, Splitted block: new free block at 0x55709bc2c0b0 with size 128
+[2024-11-26 20:51:45] Operation: malloc, Size: 64, Ptr: 0x55709bc2c070, Block reused from free list
+[2024-11-26 20:51:45] Operation: calloc, Size: 64, Ptr: 0x55709bc2c070, Block allocated and zero-initialized
+[2024-11-26 20:51:45] Operation: free, Size: 32, Ptr: 0x55709bc2c028, Block marked as free
+[2024-11-26 20:51:45] Operation: fusion, Size: 0, Ptr: 0x55709bc2c028, Blocks fused
+[2024-11-26 20:51:45] Operation: free, Size: 256, Ptr: 0x55709bc2c180, Block marked as free
+[2024-11-26 20:51:45] Operation: fusion, Size: 0, Ptr: 0x55709bc2c0d8, Blocks fused
+[2024-11-26 20:51:45] Operation: free, Size: 64, Ptr: 0x55709bc2c070, Block marked as free
+[2024-11-26 20:51:45] Operation: fusion, Size: 0, Ptr: 0x55709bc2c028, Blocks fused
+[2024-11-26 22:00:36] Operation: malloc_control, Size: 0, Ptr: (nil), Set allocation method to FIRST_FIT
+[2024-11-26 22:00:36] Operation: extend_heap, Size: 32, Ptr: 0x559d22e53028, Block extended using sbrk
+[2024-11-26 22:00:36] Operation: malloc, Size: 32, Ptr: 0x559d22e53028, Initial block created
+[2024-11-26 22:00:36] Operation: extend_heap, Size: 64, Ptr: 0x559d22e53070, Block extended using sbrk
+[2024-11-26 22:00:36] Operation: malloc, Size: 64, Ptr: 0x559d22e53070, Block extended using sbrk
+[2024-11-26 22:00:36] Operation: extend_heap, Size: 128, Ptr: 0x559d22e530d8, Block extended using sbrk
+[2024-11-26 22:00:36] Operation: malloc, Size: 128, Ptr: 0x559d22e530d8, Block extended using sbrk
+[2024-11-26 22:00:36] Operation: free, Size: 64, Ptr: 0x559d22e53070, Block marked as free
+[2024-11-26 22:00:36] Operation: fusion, Size: 0, Ptr: 0x559d22e53070, Blocks fused
+[2024-11-26 22:00:36] Operation: extend_heap, Size: 256, Ptr: 0x559d22e53180, Block extended using sbrk
+[2024-11-26 22:00:36] Operation: malloc, Size: 256, Ptr: 0x559d22e53180, Block extended using sbrk
+[2024-11-26 22:00:36] Operation: free, Size: 128, Ptr: 0x559d22e530d8, Block marked as free
+[2024-11-26 22:00:36] Operation: fusion, Size: 0, Ptr: 0x559d22e53070, Blocks fused
+[2024-11-26 22:00:36] Operation: realloc, Size: 256, Ptr: 0x559d22e53180, Block resized by allocating new block and freeing old block
+[2024-11-26 22:00:36] Operation: split_block, Size: 128, Ptr: 0x559d22e530d8, Splitted block: new free block at 0x559d22e530b0 with size 128
+[2024-11-26 22:00:36] Operation: malloc, Size: 64, Ptr: 0x559d22e53070, Block reused from free list
+[2024-11-26 22:00:36] Operation: calloc, Size: 64, Ptr: 0x559d22e53070, Block allocated and zero-initialized
+[2024-11-26 22:00:36] Operation: free, Size: 32, Ptr: 0x559d22e53028, Block marked as free
+[2024-11-26 22:00:36] Operation: fusion, Size: 0, Ptr: 0x559d22e53028, Blocks fused
+[2024-11-26 22:00:36] Operation: free, Size: 256, Ptr: 0x559d22e53180, Block marked as free
+[2024-11-26 22:00:36] Operation: fusion, Size: 0, Ptr: 0x559d22e530d8, Blocks fused
+[2024-11-26 22:00:36] Operation: free, Size: 64, Ptr: 0x559d22e53070, Block marked as free
+[2024-11-26 22:00:36] Operation: fusion, Size: 0, Ptr: 0x559d22e53028, Blocks fused
+[2024-11-26 22:02:31] Operation: malloc_control, Size: 0, Ptr: (nil), Set allocation method to FIRST_FIT
+[2024-11-26 22:02:31] Operation: extend_heap, Size: 32, Ptr: 0x5582d32d3028, Block extended using sbrk
+[2024-11-26 22:02:31] Operation: malloc, Size: 32, Ptr: 0x5582d32d3028, Initial block created
+[2024-11-26 22:02:31] Operation: extend_heap, Size: 64, Ptr: 0x5582d32d3070, Block extended using sbrk
+[2024-11-26 22:02:31] Operation: malloc, Size: 64, Ptr: 0x5582d32d3070, Block extended using sbrk
+[2024-11-26 22:02:31] Operation: extend_heap, Size: 128, Ptr: 0x5582d32d30d8, Block extended using sbrk
+[2024-11-26 22:02:31] Operation: malloc, Size: 128, Ptr: 0x5582d32d30d8, Block extended using sbrk
+[2024-11-26 22:02:31] Operation: free, Size: 64, Ptr: 0x5582d32d3070, Block marked as free
+[2024-11-26 22:02:31] Operation: fusion, Size: 0, Ptr: 0x5582d32d3070, Blocks fused
+[2024-11-26 22:02:31] Operation: extend_heap, Size: 256, Ptr: 0x5582d32d3180, Block extended using sbrk
+[2024-11-26 22:02:31] Operation: malloc, Size: 256, Ptr: 0x5582d32d3180, Block extended using sbrk
+[2024-11-26 22:02:31] Operation: free, Size: 128, Ptr: 0x5582d32d30d8, Block marked as free
+[2024-11-26 22:02:31] Operation: fusion, Size: 0, Ptr: 0x5582d32d3070, Blocks fused
+[2024-11-26 22:02:31] Operation: realloc, Size: 256, Ptr: 0x5582d32d3180, Block resized by allocating new block and freeing old block
+[2024-11-26 22:02:31] Operation: split_block, Size: 128, Ptr: 0x5582d32d30d8, Splitted block: new free block at 0x5582d32d30b0 with size 128
+[2024-11-26 22:02:31] Operation: malloc, Size: 64, Ptr: 0x5582d32d3070, Block reused from free list
+[2024-11-26 22:02:31] Operation: calloc, Size: 64, Ptr: 0x5582d32d3070, Block allocated and zero-initialized
+[2024-11-26 22:02:31] Operation: free, Size: 32, Ptr: 0x5582d32d3028, Block marked as free
+[2024-11-26 22:02:31] Operation: fusion, Size: 0, Ptr: 0x5582d32d3028, Blocks fused
+[2024-11-26 22:02:31] Operation: free, Size: 256, Ptr: 0x5582d32d3180, Block marked as free
+[2024-11-26 22:02:31] Operation: fusion, Size: 0, Ptr: 0x5582d32d30d8, Blocks fused
+[2024-11-26 22:02:31] Operation: free, Size: 64, Ptr: 0x5582d32d3070, Block marked as free
+[2024-11-26 22:02:31] Operation: fusion, Size: 0, Ptr: 0x5582d32d3028, Blocks fused
+[2024-11-26 22:05:18] Operation: malloc_control, Size: 0, Ptr: (nil), Set allocation method to FIRST_FIT
+[2024-11-26 22:05:18] Operation: extend_heap, Size: 64, Ptr: 0x5638eafdc028, Block extended using sbrk
+[2024-11-26 22:05:18] Operation: malloc, Size: 64, Ptr: 0x5638eafdc028, Initial block created
+[2024-11-26 22:05:18] Operation: extend_heap, Size: 128, Ptr: 0x5638eafdc090, Block extended using sbrk
+[2024-11-26 22:05:18] Operation: malloc, Size: 128, Ptr: 0x5638eafdc090, Block extended using sbrk
+[2024-11-26 22:05:18] Operation: free, Size: 64, Ptr: 0x5638eafdc028, Block marked as free
+[2024-11-26 22:05:18] Operation: fusion, Size: 0, Ptr: 0x5638eafdc028, Blocks fused
+[2024-11-26 22:05:18] Operation: malloc, Size: 32, Ptr: 0x5638eafdc028, Block reused from free list
+[2024-11-26 22:14:48] Operation: malloc_control, Size: 0, Ptr: (nil), Set allocation method to WORST_FIT
+[2024-11-26 22:14:48] Operation: extend_heap, Size: 64, Ptr: 0x56240279d028, Block extended using sbrk
+[2024-11-26 22:14:48] Operation: malloc, Size: 64, Ptr: 0x56240279d028, Initial block created
+[2024-11-26 22:14:48] Operation: extend_heap, Size: 128, Ptr: 0x56240279d090, Block extended using sbrk
+[2024-11-26 22:14:48] Operation: malloc, Size: 128, Ptr: 0x56240279d090, Block extended using sbrk
+[2024-11-26 22:14:48] Operation: extend_heap, Size: 32, Ptr: 0x56240279d138, Block extended using sbrk
+[2024-11-26 22:14:48] Operation: malloc, Size: 32, Ptr: 0x56240279d138, Block extended using sbrk
+[2024-11-26 22:14:48] Operation: free, Size: 128, Ptr: 0x56240279d090, Block marked as free
+[2024-11-26 22:14:48] Operation: fusion, Size: 0, Ptr: 0x56240279d090, Blocks fused
+[2024-11-26 22:14:48] Operation: split_block, Size: 40, Ptr: 0x56240279d0e8, Splitted block: new free block at 0x56240279d0c0 with size 40
+[2024-11-26 22:14:48] Operation: malloc, Size: 48, Ptr: 0x56240279d090, Block reused from free list
+[2024-11-26 22:14:48] Operation: free, Size: 64, Ptr: 0x56240279d028, Block marked as free
+[2024-11-26 22:14:48] Operation: fusion, Size: 0, Ptr: 0x56240279d028, Blocks fused
+[2024-11-26 22:14:48] Operation: free, Size: 32, Ptr: 0x56240279d138, Block marked as free
+[2024-11-26 22:14:48] Operation: fusion, Size: 0, Ptr: 0x56240279d0e8, Blocks fused
+[2024-11-26 22:14:48] Operation: free, Size: 48, Ptr: 0x56240279d090, Block marked as free
+[2024-11-26 22:14:48] Operation: fusion, Size: 0, Ptr: 0x56240279d028, Blocks fused
+[2024-11-26 22:16:24] Operation: malloc_control, Size: 0, Ptr: (nil), Set allocation method to BEST_FIT
+[2024-11-26 22:16:24] Operation: extend_heap, Size: 64, Ptr: 0x56154a0ac028, Block extended using sbrk
+[2024-11-26 22:16:24] Operation: malloc, Size: 64, Ptr: 0x56154a0ac028, Initial block created
+[2024-11-26 22:16:24] Operation: extend_heap, Size: 128, Ptr: 0x56154a0ac090, Block extended using sbrk
+[2024-11-26 22:16:24] Operation: malloc, Size: 128, Ptr: 0x56154a0ac090, Block extended using sbrk
+[2024-11-26 22:16:24] Operation: free, Size: 64, Ptr: 0x56154a0ac028, Block marked as free
+[2024-11-26 22:16:24] Operation: fusion, Size: 0, Ptr: 0x56154a0ac028, Blocks fused
+[2024-11-26 22:16:24] Operation: malloc, Size: 32, Ptr: 0x56154a0ac028, Block reused from free list
+[2024-11-26 22:16:24] Operation: extend_heap, Size: 48, Ptr: 0x56154a0ac138, Block extended using sbrk
+[2024-11-26 22:16:24] Operation: malloc, Size: 48, Ptr: 0x56154a0ac138, Block extended using sbrk
+[2024-11-26 22:16:24] Operation: free, Size: 128, Ptr: 0x56154a0ac090, Block marked as free
+[2024-11-26 22:16:24] Operation: fusion, Size: 0, Ptr: 0x56154a0ac090, Blocks fused
+[2024-11-26 22:16:24] Operation: free, Size: 64, Ptr: 0x56154a0ac028, Block marked as free
+[2024-11-26 22:16:24] Operation: fusion, Size: 0, Ptr: 0x56154a0ac028, Blocks fused
+[2024-11-26 22:16:24] Operation: free, Size: 48, Ptr: 0x56154a0ac138, Block marked as free
+[2024-11-26 22:16:24] Operation: fusion, Size: 0, Ptr: 0x56154a0ac028, Blocks fused

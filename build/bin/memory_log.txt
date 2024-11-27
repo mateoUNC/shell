@@ -79,3 +79,23 @@
 [2024-11-26 17:03:30] Operation: fusion, Size: 0, Ptr: 0x556d3bd811e0, Blocks fused
 [2024-11-26 17:03:30] Operation: free, Size: 256, Ptr: 0x556d3bd810b8, Block marked as free
 [2024-11-26 17:03:30] Operation: fusion, Size: 0, Ptr: 0x556d3bd81028, Blocks fused
+[2024-11-26 20:24:02] Operation: malloc_control, Size: 0, Ptr: (nil), Set allocation method to WORST_FIT
+[2024-11-26 20:24:02] Operation: split_block, Size: 160, Ptr: 0x56331270c0b8, Splitted block: new free block at 0x56331270c090 with size 160
+[2024-11-26 20:24:02] Operation: malloc, Size: 100, Ptr: 0x56331270c028, Block reused from free list
+[2024-11-26 20:24:02] Operation: extend_heap, Size: 304, Ptr: 0x56331270c180, Block extended using sbrk
+[2024-11-26 20:24:02] Operation: malloc, Size: 300, Ptr: 0x56331270c180, Block extended using sbrk
+[2024-11-26 20:24:02] Operation: extend_heap, Size: 200, Ptr: 0x56331270c2d8, Block extended using sbrk
+[2024-11-26 20:24:02] Operation: malloc, Size: 200, Ptr: 0x56331270c2d8, Block extended using sbrk
+[2024-11-26 20:24:02] Operation: malloc, Size: 150, Ptr: 0x56331270c0b8, Block reused from free list
+[2024-11-26 20:24:02] Operation: free, Size: 304, Ptr: 0x56331270c180, Block marked as free
+[2024-11-26 20:24:02] Operation: fusion, Size: 0, Ptr: 0x56331270c180, Blocks fused
+[2024-11-26 20:24:02] Operation: free, Size: 160, Ptr: 0x56331270c0b8, Block marked as free
+[2024-11-26 20:24:02] Operation: fusion, Size: 0, Ptr: 0x56331270c0b8, Blocks fused
+[2024-11-26 20:24:02] Operation: split_block, Size: 208, Ptr: 0x56331270c1e0, Splitted block: new free block at 0x56331270c1b8 with size 208
+[2024-11-26 20:24:02] Operation: malloc, Size: 250, Ptr: 0x56331270c0b8, Block reused from free list
+[2024-11-26 20:24:02] Operation: free, Size: 104, Ptr: 0x56331270c028, Block marked as free
+[2024-11-26 20:24:02] Operation: fusion, Size: 0, Ptr: 0x56331270c028, Blocks fused
+[2024-11-26 20:24:02] Operation: free, Size: 200, Ptr: 0x56331270c2d8, Block marked as free
+[2024-11-26 20:24:02] Operation: fusion, Size: 0, Ptr: 0x56331270c1e0, Blocks fused
+[2024-11-26 20:24:02] Operation: free, Size: 256, Ptr: 0x56331270c0b8, Block marked as free
+[2024-11-26 20:24:02] Operation: fusion, Size: 0, Ptr: 0x56331270c028, Blocks fused

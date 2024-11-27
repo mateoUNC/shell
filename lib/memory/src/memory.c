@@ -322,7 +322,7 @@ void check_heap(void *data) {
     printf("Heap address: %p\n", sbrk(0));
 }
 
-void extended() {
+void check_heap_extended() {
     if (!base) {
         printf("Heap is empty.\n");
         return;
